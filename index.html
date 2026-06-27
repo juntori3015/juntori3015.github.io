@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="節約・習慣・健康をサポートする無料Webアプリ集。レジストログ・宇宙探検家・ダイエット習慣アプリなど、日常生活をちょっと便利にするツールを公開しています。">
+  <title>juntori3015 | 無料Webアプリ集</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #e8e8e8;
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: #555;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .app-card {
+      background: #161616;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+      display: block;
+    }
+
+    .app-card:hover {
+      border-color: #444;
+      background: #1c1c1c;
+    }
+
+    .app-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .app-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .app-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .about {
+      background: #161616;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+
+    .about h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .about p {
+      font-size: 0.9rem;
+      color: #777;
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+
+    .about p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      border-top: 1px solid #1a1a1a;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #555;
+      text-decoration: none;
+      font-size: 0.8rem;
+      margin: 0 12px;
+    }
+
+    footer a:hover {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>juntori3015</h1>
+    <p>日常をちょっとよくする、無料Webアプリ集</p>
+  </header>
+
+  <main>
+
+    <p class="section-title">Apps</p>
+
+    <div class="apps">
+      <a class="app-card" href="/resist-log/">
+        <div class="app-icon">🏆</div>
+        <div class="app-name">レジストログ</div>
+        <div class="app-desc">節約行動を記録してコインを貯めるゲーム感覚の習慣トラッカー。カフェ我慢・コンビニ回避など日々の積み重ねを可視化。</div>
+      </a>
+
+      <a class="app-card" href="/space-explorer/">
+        <div class="app-icon">🚀</div>
+        <div class="app-name">宇宙探検家</div>
+        <div class="app-desc">宇宙の広さをインタラクティブに体感できる探索アプリ。惑星・恒星・銀河など宇宙のスケールを視覚的に学べる。</div>
+      </a>
+
+      <a class="app-card" href="/diet-habit-app/">
+        <div class="app-icon">💪</div>
+        <div class="app-name">ダイエット習慣アプリ</div>
+        <div class="app-desc">食事・運動・睡眠など健康習慣を記録・管理するアプリ。継続を助けるシンプルなUI設計。</div>
+      </a>
+
+      <a class="app-card" href="/GYM/">
+        <div class="app-icon">🏋️</div>
+        <div class="app-name">ジム</div>
+        <div class="app-desc">ジムマシンの使い方・フォームを解説するガイドアプリ。初心者から中級者まで役立つトレーニング情報。</div>
+      </a>
+    </div>
+
+    <div class="about">
+      <h2>このサイトについて</h2>
+      <p>
+        juntori3015 は、日々の生活をちょっとだけ改善するための無料Webアプリを制作・公開しています。
+        節約・健康・学びをテーマに、シンプルで使いやすいツールを目指して開発しています。
+      </p>
+      <p>
+        すべてのアプリはブラウザだけで動作し、インストール不要で無料でご利用いただけます。
+        スマートフォン・タブレット・PCなど、どのデバイスからでもアクセス可能です。
+      </p>
+      <p>
+        フィードバックや改善のご要望があれば、GitHub よりお気軽にどうぞ。
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="/privacy-policy/">プライバシーポリシー</a>
+    <a href="https://github.com/juntori3015" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+</body>
+</html>
