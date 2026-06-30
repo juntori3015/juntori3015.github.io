@@ -325,6 +325,57 @@
       color: var(--muted);
     }
 
+    /* ---- DETAIL ---- */
+    .detail-list { margin-bottom: 96px; }
+
+    .detail-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 28px;
+      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-num {
+      font-family: var(--en);
+      font-size: 0.86rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding-top: 6px;
+    }
+
+    .detail-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .detail-text {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 2.1;
+      margin-bottom: 28px;
+    }
+
+    .detail-text p + p { margin-top: 1.2em; }
+
+    .detail-link {
+      font-family: var(--en);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.3s ease;
+    }
+
+    .detail-link:hover { gap: 16px; }
+
     /* ---- FOOTER ---- */
     footer {
       border-top: 1px solid var(--border);
@@ -370,6 +421,12 @@
       .about-body {
         grid-template-columns: 1fr;
         gap: 44px;
+      }
+
+      .detail-item {
+        grid-template-columns: 36px 1fr;
+        gap: 16px;
+        padding: 40px 0;
       }
 
       footer {
@@ -510,12 +567,73 @@
     </div>
 
     <div class="section-head">
+      <span class="section-label">Detail</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="detail-list">
+
+      <div class="detail-item">
+        <span class="detail-num">01</span>
+        <div>
+          <h2 class="detail-name">今日何我慢した？</h2>
+          <div class="detail-text">
+            <p>節約を「見える化」するアプリです。カフェを我慢した、コンビニに寄らなかった、自炊したなど、日々の小さな我慢をコインとして積み上げていきます。続けるほど貯まっていく感覚が、次の日の節約モチベーションにつながります。</p>
+            <p>入力はシンプルで、「何を我慢したか」をタップするだけ。面倒な金額の入力や計算は一切不要です。連続記録日数も表示されるので、「今日で何日続いている」という達成感も味わえます。節約を義務感ではなく、ゲーム感覚で続けられる設計を目指しました。</p>
+          </div>
+          <a class="detail-link" href="/resist-log/">開く →</a>
+        </div>
+      </div>
+
+      <div class="detail-item">
+        <span class="detail-num">02</span>
+        <div>
+          <h2 class="detail-name">宇宙探検家</h2>
+          <div class="detail-text">
+            <p>暇つぶしに宇宙の広さをぼんやり眺めるアプリです。地球から始まり、月、太陽系の惑星、恒星、銀河、そして宇宙の果てまで、スケール感を段階的に体感できます。</p>
+            <p>「宇宙って本当に広いんだな」という感覚を、テキストではなく体験として伝えたくて作りました。惑星・恒星・銀河などの情報も確認できるので、眺めながらちょっとした宇宙知識が身につきます。特に何かを達成するアプリではなく、ただぼんやりと宇宙に浸ってほしい一本です。</p>
+          </div>
+          <a class="detail-link" href="/space-explorer/">開く →</a>
+        </div>
+      </div>
+
+      <div class="detail-item">
+        <span class="detail-num">03</span>
+        <div>
+          <h2 class="detail-name">ダイエット習慣アプリ</h2>
+          <div class="detail-text">
+            <p>食事・運動・睡眠の習慣をタップだけで記録するアプリです。「続けられないのは、入力が面倒だから」という考えのもと、「やった」「やらなかった」の2択だけで記録できる設計にしています。カロリー計算や詳細なメモは必要ありません。</p>
+            <p>記録が積み重なっていく視覚的な達成感が、自然と次の日の行動を促します。スマートフォンで毎日数秒で完結するので、忙しい日でも続けられます。ダイエットを「頑張るもの」から「続けられるもの」に変えたくて作りました。</p>
+          </div>
+          <a class="detail-link" href="/diet-habit-app/">開く →</a>
+        </div>
+      </div>
+
+      <div class="detail-item">
+        <span class="detail-num">04</span>
+        <div>
+          <h2 class="detail-name">ジム</h2>
+          <div class="detail-text">
+            <p>ジムのマシンの使い方をまとめたガイドアプリです。「このマシン、どう使えばいいんだろう」という場面を減らしたくて作りました。各マシンの使い方・正しいフォーム・鍛えられる筋肉部位をわかりやすく確認できます。</p>
+            <p>ジムに通い始めたばかりで何から始めればいいかわからない方にとくにおすすめです。難しい専門用語は使わず、はじめての人でも迷わず読めるように書いています。スマートフォンでジムの中からそのまま確認できます。</p>
+          </div>
+          <a class="detail-link" href="/GYM/">開く →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-head">
       <span class="section-label">About</span>
       <div class="section-rule"></div>
     </div>
 
     <div class="about-body">
-      <p class="about-text">個人で作っているWebアプリをまとめています。節約・暇つぶし・健康をテーマに、シンプルで毎日使いたくなるものを目指しています。すべてのアプリはブラウザだけで動作し、インストール不要・無料でご利用いただけます。</p>
+      <div>
+        <p class="about-text">個人で作っているWebアプリをまとめています。節約・暇つぶし・健康をテーマに、シンプルで毎日使いたくなるものを目指しています。</p>
+        <p class="about-text" style="margin-top:1.4em">すべてのアプリはブラウザのみで動作し、アカウント登録・ログイン・個人情報の入力は不要です。スマートフォン・タブレット・PCどのデバイスからでも使えるよう、モバイルファーストで設計しています。データはすべてお使いのデバイス内に保存されるため、プライバシーの心配もありません。</p>
+        <p class="about-text" style="margin-top:1.4em">新しいアプリは随時追加予定です。アイデアやフィードバックがあれば、GitHubからご連絡ください。</p>
+      </div>
       <div class="about-stats">
         <div>
           <div class="stat-num">04</div>
@@ -524,6 +642,10 @@
         <div>
           <div class="stat-num">¥0</div>
           <div class="stat-desc">Cost to Use</div>
+        </div>
+        <div>
+          <div class="stat-num">0</div>
+          <div class="stat-desc">Install Required</div>
         </div>
       </div>
     </div>
