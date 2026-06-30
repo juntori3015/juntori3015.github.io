@@ -8,457 +8,378 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3460058387565786" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #0c0c0c;
-      --text: #edede8;
-      --muted: #a0a09a;
-      --border: #1c1c1a;
-      --accent: #ff3c00;
-      --en: 'Space Grotesk', sans-serif;
-      --ja: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--ja);
-      min-height: 100vh;
-      overflow-x: hidden;
+      background: #f5f2ea;
+      color: #1c1b18;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
     }
 
-    /* ---- CURSOR ---- */
-    .cursor {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: var(--text);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.25s ease, height 0.25s ease;
-      mix-blend-mode: difference;
-    }
-    .cursor.hover { width: 44px; height: 44px; }
-    @media (hover: none) { .cursor { display: none; } }
+    @keyframes mqa { to { transform: translateX(-50%); } }
 
-    /* ---- HEADER ---- */
-    header {
-      padding: 52px 40px 60px;
-      max-width: 1200px;
-      margin: 0 auto;
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- SHARED ---- */
+    .pad { padding-left: 48px; padding-right: 48px; }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: .2em;
+      font-weight: 700;
+      color: rgba(28,27,24,.5);
+      padding: 72px 0 24px;
+      display: block;
     }
 
-    .nav {
+    /* ---- TOPBAR ---- */
+    .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 88px;
-      font-family: var(--en);
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
+      padding: 24px 48px;
+      border-bottom: 1px solid rgba(28,27,24,.12);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .04em;
     }
 
-    /* hero reveal animations */
-    .reveal-wrap { overflow: hidden; }
-    .reveal-inner {
-      display: block;
-      opacity: 0;
-      transform: translateY(100%);
-      animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .d1 { animation-delay: 0.05s; }
-    .d2 { animation-delay: 0.18s; }
-    .d3 { animation-delay: 0.30s; }
-    .d4 { animation-delay: 0.44s; }
+    .topbar-brand { font-weight: 700; }
 
-    @keyframes revealUp {
-      to { opacity: 1; transform: translateY(0); }
+    .topbar-meta { color: rgba(28,27,24,.5); }
+
+    /* ---- HERO ---- */
+    .hero {
+      padding: 84px 48px 64px;
+      max-width: 980px;
     }
 
-    .hero-label {
-      font-family: var(--en);
-      font-size: 0.82rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 20px;
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .22em;
+      color: rgba(28,27,24,.45);
+      margin-bottom: 28px;
     }
 
     .hero-title {
-      font-family: var(--en);
-      font-size: clamp(4rem, 13vw, 10rem);
-      font-weight: 700;
-      line-height: 0.88;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 44px;
+      font-family: 'Zen Old Mincho', serif;
+      font-weight: 900;
+      font-size: clamp(44px, 7vw, 92px);
+      line-height: 1.02;
+      letter-spacing: -.01em;
+      margin-bottom: 30px;
     }
 
-    .hero-title .line { display: block; }
-
-    .hero-desc {
-      font-size: clamp(0.88rem, 1.8vw, 1rem);
-      color: var(--muted);
+    .hero-sub {
+      font-size: 17px;
       line-height: 2;
-      max-width: 400px;
+      color: rgba(28,27,24,.7);
+      max-width: 560px;
     }
 
     /* ---- MARQUEE ---- */
     .marquee-wrap {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 13px 0;
       overflow: hidden;
-      margin-bottom: 72px;
+      border-top: 1px solid rgba(28,27,24,.12);
+      border-bottom: 1px solid rgba(28,27,24,.12);
+      padding: 14px 0;
+      white-space: nowrap;
     }
 
     .marquee-track {
+      display: inline-flex;
+      animation: mqa 26s linear infinite;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: .08em;
+      color: rgba(28,27,24,.55);
+    }
+
+    /* ---- APPS INDEX ---- */
+    .apps-head {
+      padding: 72px 48px 24px;
       display: flex;
-      white-space: nowrap;
-      animation: marquee 20s linear infinite;
+      align-items: baseline;
+      justify-content: space-between;
     }
 
-    .marquee-item {
-      font-family: var(--en);
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0 32px;
-      flex-shrink: 0;
-    }
-
-    .marquee-sep {
-      color: var(--accent);
-      flex-shrink: 0;
-      font-size: 0.5rem;
-      align-self: center;
-    }
-
-    @keyframes marquee {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ---- MAIN ---- */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px 120px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .section-label {
-      font-family: var(--en);
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ---- APP LIST ---- */
-    .app-list { margin-bottom: 96px; }
-
-    .app-item {
-      display: grid;
-      grid-template-columns: 52px 1fr 40px 28px;
-      align-items: center;
-      gap: 28px;
-      padding: 26px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-      /* scroll reveal default state */
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-
-    .app-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* hover background sweep */
-    .app-item::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--border);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 0;
-    }
-
-    .app-item:hover::before { transform: scaleX(1); }
-
-    .app-item > * { position: relative; z-index: 1; }
-
-    .app-num {
-      font-family: var(--en);
-      font-size: 0.86rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      transition: color 0.3s;
-    }
-
-    .app-item:hover .app-num { color: var(--accent); }
-
-    .app-info {}
-
-    .app-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 3px;
-      line-height: 1.3;
-    }
-
-    .app-tag {
-      font-family: var(--en);
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .app-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .app-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.35;
-      transition: opacity 0.3s;
-    }
-
-    .app-item:hover .app-icon { opacity: 0.7; }
-
-    .app-icon svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--text);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .app-arrow {
-      font-family: var(--en);
-      font-size: 1rem;
-      color: var(--muted);
-      transition: transform 0.3s ease, color 0.3s;
-      text-align: right;
-    }
-
-    .app-item:hover .app-arrow {
-      transform: translateX(5px);
-      color: var(--text);
-    }
-
-    /* ---- ABOUT ---- */
-    .about-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      margin-top: 44px;
-    }
-
-    .about-text {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 2.1;
-    }
-
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .stat-num {
-      font-family: var(--en);
-      font-size: 2.8rem;
+    .apps-head h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: .2em;
       font-weight: 700;
-      color: var(--text);
-      line-height: 1;
-      margin-bottom: 4px;
+      color: rgba(28,27,24,.5);
     }
 
-    .stat-desc {
-      font-family: var(--en);
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
+    .apps-head-year {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: rgba(28,27,24,.4);
     }
+
+    .apps-list { padding: 0 48px 64px; }
+
+    .app-row {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 30px 8px;
+      border-top: 1px solid rgba(28,27,24,.14);
+      transition: background 120ms ease;
+    }
+
+    .app-row:hover { background: rgba(28,27,24,.035); }
+
+    .app-row-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: rgba(28,27,24,.4);
+    }
+
+    .app-row-info { display: flex; flex-direction: column; gap: 6px; }
+
+    .app-row-titles {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .app-row-jp {
+      font-family: 'Zen Old Mincho', serif;
+      font-weight: 700;
+      font-size: clamp(22px, 2.6vw, 30px);
+      line-height: 1.1;
+    }
+
+    .app-row-en {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: rgba(28,27,24,.45);
+    }
+
+    .app-row-tag {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(28,27,24,.62);
+      max-width: 620px;
+    }
+
+    .app-row-theme {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      color: rgba(28,27,24,.5);
+      justify-self: end;
+      white-space: nowrap;
+    }
+
+    .apps-list-end { border-top: 1px solid rgba(28,27,24,.14); }
 
     /* ---- DETAIL ---- */
-    .detail-list { margin-bottom: 96px; }
+    .detail-section { padding: 0 48px 0; }
+
+    .detail-list { padding-bottom: 24px; }
 
     .detail-item {
       display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 28px;
-      padding: 52px 0;
-      border-bottom: 1px solid var(--border);
+      grid-template-columns: 64px 1fr;
+      gap: 24px;
+      padding: 48px 8px;
+      border-top: 1px solid rgba(28,27,24,.14);
     }
+
+    .detail-item:last-child { border-bottom: 1px solid rgba(28,27,24,.14); }
 
     .detail-num {
-      font-family: var(--en);
-      font-size: 0.86rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      padding-top: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: rgba(28,27,24,.4);
+      padding-top: 8px;
     }
 
-    .detail-name {
-      font-size: 1.35rem;
+    .detail-title {
+      font-family: 'Zen Old Mincho', serif;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 24px;
+      font-size: clamp(20px, 2.2vw, 26px);
       line-height: 1.2;
+      margin-bottom: 20px;
     }
 
-    .detail-text {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 2.1;
-      margin-bottom: 28px;
+    .detail-body {
+      font-size: 14.5px;
+      line-height: 2;
+      color: rgba(28,27,24,.7);
+      margin-bottom: 24px;
     }
 
-    .detail-text p + p { margin-top: 1.2em; }
+    .detail-body p + p { margin-top: 1em; }
 
     .detail-link {
-      font-family: var(--en);
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      color: var(--text);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: gap 0.3s ease;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: #1c1b18;
+      display: inline-block;
+      transition: letter-spacing 0.2s ease;
     }
 
-    .detail-link:hover { gap: 16px; }
+    .detail-link:hover { letter-spacing: .12em; }
 
     /* ---- COLUMN ---- */
+    .column-section { padding: 0 48px 0; }
+
     .column-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
-      margin-bottom: 96px;
+      padding-top: 40px;
+      padding-bottom: 72px;
     }
 
-    .column-item {
-      border-top: 2px solid var(--border);
-      padding-top: 28px;
-    }
+    .column-item { border-top: 1px solid rgba(28,27,24,.14); padding-top: 24px; }
 
     .column-cat {
-      font-family: var(--en);
-      font-size: 0.76rem;
-      letter-spacing: 0.18em;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: rgba(28,27,24,.5);
       margin-bottom: 12px;
     }
 
     .column-title {
-      font-size: 1.05rem;
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 18px;
       font-weight: 700;
-      color: var(--text);
       line-height: 1.55;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .column-body {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 2.05;
+      font-size: 13.5px;
+      line-height: 2;
+      color: rgba(28,27,24,.7);
     }
 
-    .column-body p + p { margin-top: 1em; }
+    .column-body p + p { margin-top: .8em; }
+
+    /* ---- ABOUT DARK BAND ---- */
+    .about-band {
+      background: #1c1b18;
+      color: #f5f2ea;
+      padding: 80px 48px;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 56px;
+      max-width: 1100px;
+    }
+
+    .about-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: .2em;
+      font-weight: 700;
+      color: rgba(245,242,234,.5);
+      margin-bottom: 24px;
+    }
+
+    .about-lead {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: clamp(22px, 2.8vw, 30px);
+      line-height: 1.6;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .about-body {
+      font-size: 14.5px;
+      line-height: 2;
+      color: rgba(245,242,234,.7);
+    }
+
+    .about-body p + p { margin-top: 1em; }
+
+    .stats-col { display: flex; flex-direction: column; align-self: start; }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 18px 0;
+      border-top: 1px solid rgba(245,242,234,.18);
+    }
+
+    .stat-row:last-child { border-bottom: 1px solid rgba(245,242,234,.18); }
+
+    .stat-label { font-size: 13px; color: rgba(245,242,234,.6); }
+
+    .stat-val {
+      font-family: 'Zen Old Mincho', serif;
+      font-size: 40px;
+      font-weight: 700;
+    }
 
     /* ---- FOOTER ---- */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 30px 48px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .04em;
     }
 
-    .footer-brand {
-      font-family: var(--en);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-    }
+    .footer-brand { font-weight: 700; }
 
-    .footer-links { display: flex; gap: 28px; }
+    .footer-links { display: flex; gap: 24px; color: rgba(28,27,24,.55); }
 
-    .footer-links a {
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--text); }
+    .footer-links a { transition: color .15s; }
+    .footer-links a:hover { color: #1c1b18; }
 
     /* ---- RESPONSIVE ---- */
-    @media (max-width: 680px) {
-      header { padding: 36px 20px 44px; }
-      .nav { margin-bottom: 56px; }
-      main { padding: 0 20px 80px; }
-
-      .app-item {
-        grid-template-columns: 36px 1fr 24px;
-        gap: 16px;
+    @media (max-width: 760px) {
+      .pad,
+      .topbar,
+      .hero,
+      .apps-head,
+      .apps-list,
+      .detail-section,
+      .column-section,
+      .about-band,
+      .footer {
+        padding-left: 24px;
+        padding-right: 24px;
       }
-      .app-icon { display: none; }
 
-      .about-body {
+      .hero { padding-top: 56px; padding-bottom: 48px; }
+
+      .app-row {
+        grid-template-columns: 48px 1fr;
+      }
+
+      .app-row-theme {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 4px;
+      }
+
+      .about-inner {
         grid-template-columns: 1fr;
-        gap: 44px;
+        gap: 36px;
       }
 
       .column-grid {
@@ -467,214 +388,155 @@
       }
 
       .detail-item {
-        grid-template-columns: 36px 1fr;
-        gap: 16px;
-        padding: 40px 0;
-      }
-
-      footer {
-        padding: 24px 20px;
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
+        grid-template-columns: 48px 1fr;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor" id="js-cursor"></div>
-
-  <header>
-    <nav class="nav">
-      <span>juntori3015</span>
-      <span>04 Apps</span>
-    </nav>
-
-    <p class="hero-label">
-      <span class="reveal-wrap"><span class="reveal-inner d1">Free Web Apps</span></span>
-    </p>
-
-    <h1 class="hero-title">
-      <span class="line">
-        <span class="reveal-wrap"><span class="reveal-inner d2">juntori</span></span>
-      </span>
-      <span class="line">
-        <span class="reveal-wrap"><span class="reveal-inner d3">3015</span></span>
-      </span>
-    </h1>
-
-    <p class="hero-desc">
-      <span class="reveal-wrap"><span class="reveal-inner d4">日常をちょっとよくする、<br>無料Webアプリを作っています。<br>節約・暇つぶし・健康がテーマです。</span></span>
-    </p>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <span class="topbar-brand">juntori3015</span>
+    <span class="topbar-meta">04 APPS · FREE · NO INSTALL</span>
   </header>
 
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">FREE WEB APPS — 節約 / 暇つぶし / 健康</p>
+    <h1 class="hero-title">日常を、<br>ちょっとよくする。</h1>
+    <p class="hero-sub">節約・暇つぶし・健康をテーマにした無料Webアプリを、個人でつくっています。ブラウザだけで動き、登録もインストールも不要。データはあなたの端末の中だけに。</p>
+  </div>
+
+  <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span class="marquee-item">節約</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">暇つぶし</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">健康</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Free Web Apps</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Browser Only</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">No Install</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Mobile First</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">節約</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">暇つぶし</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">健康</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Free Web Apps</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Browser Only</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">No Install</span><span class="marquee-sep">◆</span>
-      <span class="marquee-item">Mobile First</span><span class="marquee-sep">◆</span>
+      <span>節約 ✦ 暇つぶし ✦ 健康 ✦ Free Web Apps ✦ Browser Only ✦ No Install ✦ Mobile First ✦&nbsp;</span>
+      <span>節約 ✦ 暇つぶし ✦ 健康 ✦ Free Web Apps ✦ Browser Only ✦ No Install ✦ Mobile First ✦&nbsp;</span>
     </div>
   </div>
 
-  <main>
+  <!-- APPS INDEX -->
+  <div class="apps-head pad">
+    <h2>CONTENTS — APPS</h2>
+    <span class="apps-head-year">2026</span>
+  </div>
 
-    <div class="section-head">
-      <span class="section-label">Apps</span>
-      <div class="section-rule"></div>
-    </div>
+  <div class="apps-list pad">
+    <a class="app-row" href="https://juntori3015.github.io/resist-log/" target="_blank" rel="noopener">
+      <span class="app-row-num">01</span>
+      <span class="app-row-info">
+        <span class="app-row-titles">
+          <span class="app-row-jp">今日何我慢した？</span>
+          <span class="app-row-en">Savings Tracker</span>
+        </span>
+        <span class="app-row-tag">カフェ我慢・コンビニ回避など日々の節約行動をコインで見える化。続けるほど貯まる習慣トラッカー。</span>
+      </span>
+      <span class="app-row-theme">節約 →</span>
+    </a>
 
-    <div class="app-list">
+    <a class="app-row" href="https://juntori3015.github.io/space-explorer/" target="_blank" rel="noopener">
+      <span class="app-row-num">02</span>
+      <span class="app-row-info">
+        <span class="app-row-titles">
+          <span class="app-row-jp">宇宙探検家</span>
+          <span class="app-row-en">Space Explorer</span>
+        </span>
+        <span class="app-row-tag">地球から銀河の果てまで、宇宙の広さをインタラクティブに体感。ぼんやり眺めてほしい一本。</span>
+      </span>
+      <span class="app-row-theme">暇つぶし →</span>
+    </a>
 
-      <a class="app-item" href="/resist-log/">
-        <span class="app-num">01</span>
-        <div class="app-info">
-          <div class="app-name">今日何我慢した？</div>
-          <div class="app-tag">Savings Tracker</div>
-          <div class="app-desc">カフェ我慢・コンビニ回避など日々の節約行動をコインで見える化。続けるほど貯まる習慣トラッカー。</div>
-        </div>
-        <div class="app-icon">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 7v1m0 8v1"/>
-            <path d="M9.5 10a2.5 2.5 0 0 1 5 0c0 1.5-1.2 2-2.5 2.5S9.5 13.5 9.5 15a2.5 2.5 0 0 0 5 0"/>
-          </svg>
-        </div>
-        <span class="app-arrow">→</span>
-      </a>
+    <a class="app-row" href="https://juntori3015.github.io/diet-habit-app/" target="_blank" rel="noopener">
+      <span class="app-row-num">03</span>
+      <span class="app-row-info">
+        <span class="app-row-titles">
+          <span class="app-row-jp">ダイエット習慣アプリ</span>
+          <span class="app-row-en">Diet Habit</span>
+        </span>
+        <span class="app-row-tag">食事・運動・睡眠をタップだけで記録。細かい入力なしで続けられるシンプル設計。</span>
+      </span>
+      <span class="app-row-theme">健康 →</span>
+    </a>
 
-      <a class="app-item" href="/space-explorer/">
-        <span class="app-num">02</span>
-        <div class="app-info">
-          <div class="app-name">宇宙探検家</div>
-          <div class="app-tag">Space Explorer</div>
-          <div class="app-desc">地球から銀河の果てまで、宇宙の広さをインタラクティブに体感。暇なときにぼんやり眺めてほしい。</div>
-        </div>
-        <div class="app-icon">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 2v3m0 14v3M2 12h3m14 0h3"/>
-            <path d="M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6 2.1-2.1"/>
-          </svg>
-        </div>
-        <span class="app-arrow">→</span>
-      </a>
+    <a class="app-row" href="https://juntori3015.github.io/GYM/" target="_blank" rel="noopener">
+      <span class="app-row-num">04</span>
+      <span class="app-row-info">
+        <span class="app-row-titles">
+          <span class="app-row-jp">ジム</span>
+          <span class="app-row-en">Gym Guide</span>
+        </span>
+        <span class="app-row-tag">マシンの使い方・鍛えられる部位をまとめたガイド。ジムに通い始めたばかりの人に。</span>
+      </span>
+      <span class="app-row-theme">健康 →</span>
+    </a>
 
-      <a class="app-item" href="/diet-habit-app/">
-        <span class="app-num">03</span>
-        <div class="app-info">
-          <div class="app-name">ダイエット習慣アプリ</div>
-          <div class="app-tag">Diet Habit</div>
-          <div class="app-desc">食事・運動・睡眠をタップだけで記録。細かい入力なしで続けられるシンプル設計。</div>
-        </div>
-        <div class="app-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 3c-1 3-4 5-4 9a4 4 0 0 0 8 0c0-4-3-6-4-9z"/>
-            <path d="M12 12c0 2-1 3-1 3"/>
-          </svg>
-        </div>
-        <span class="app-arrow">→</span>
-      </a>
+    <div class="apps-list-end"></div>
+  </div>
 
-      <a class="app-item" href="/GYM/">
-        <span class="app-num">04</span>
-        <div class="app-info">
-          <div class="app-name">ジム</div>
-          <div class="app-tag">Gym Guide</div>
-          <div class="app-desc">マシンの使い方・鍛えられる部位をまとめたガイド。ジムに通い始めたばかりの人に。</div>
-        </div>
-        <div class="app-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M6 8h12"/>
-            <path d="M6 16h12"/>
-            <rect x="4" y="6" width="2" height="12" rx="1"/>
-            <rect x="18" y="6" width="2" height="12" rx="1"/>
-            <rect x="1" y="9" width="3" height="6" rx="1"/>
-            <rect x="20" y="9" width="3" height="6" rx="1"/>
-          </svg>
-        </div>
-        <span class="app-arrow">→</span>
-      </a>
-
-    </div>
-
-    <div class="section-head">
-      <span class="section-label">Detail</span>
-      <div class="section-rule"></div>
-    </div>
-
+  <!-- DETAIL -->
+  <div class="detail-section pad">
+    <span class="section-label">DETAIL — APPS</span>
     <div class="detail-list">
 
       <div class="detail-item">
         <span class="detail-num">01</span>
         <div>
-          <h2 class="detail-name">今日何我慢した？</h2>
-          <div class="detail-text">
+          <h2 class="detail-title">今日何我慢した？</h2>
+          <div class="detail-body">
             <p>節約を「見える化」するアプリです。カフェを我慢した、コンビニに寄らなかった、自炊したなど、日々の小さな我慢をコインとして積み上げていきます。続けるほど貯まっていく感覚が、次の日の節約モチベーションにつながります。</p>
             <p>入力はシンプルで、「何を我慢したか」をタップするだけ。面倒な金額の入力や計算は一切不要です。連続記録日数も表示されるので、「今日で何日続いている」という達成感も味わえます。節約を義務感ではなく、ゲーム感覚で続けられる設計を目指しました。</p>
           </div>
-          <a class="detail-link" href="/resist-log/">開く →</a>
+          <a class="detail-link" href="https://juntori3015.github.io/resist-log/" target="_blank" rel="noopener">開く →</a>
         </div>
       </div>
 
       <div class="detail-item">
         <span class="detail-num">02</span>
         <div>
-          <h2 class="detail-name">宇宙探検家</h2>
-          <div class="detail-text">
+          <h2 class="detail-title">宇宙探検家</h2>
+          <div class="detail-body">
             <p>暇つぶしに宇宙の広さをぼんやり眺めるアプリです。地球から始まり、月、太陽系の惑星、恒星、銀河、そして宇宙の果てまで、スケール感を段階的に体感できます。</p>
             <p>「宇宙って本当に広いんだな」という感覚を、テキストではなく体験として伝えたくて作りました。惑星・恒星・銀河などの情報も確認できるので、眺めながらちょっとした宇宙知識が身につきます。特に何かを達成するアプリではなく、ただぼんやりと宇宙に浸ってほしい一本です。</p>
           </div>
-          <a class="detail-link" href="/space-explorer/">開く →</a>
+          <a class="detail-link" href="https://juntori3015.github.io/space-explorer/" target="_blank" rel="noopener">開く →</a>
         </div>
       </div>
 
       <div class="detail-item">
         <span class="detail-num">03</span>
         <div>
-          <h2 class="detail-name">ダイエット習慣アプリ</h2>
-          <div class="detail-text">
+          <h2 class="detail-title">ダイエット習慣アプリ</h2>
+          <div class="detail-body">
             <p>食事・運動・睡眠の習慣をタップだけで記録するアプリです。「続けられないのは、入力が面倒だから」という考えのもと、「やった」「やらなかった」の2択だけで記録できる設計にしています。カロリー計算や詳細なメモは必要ありません。</p>
             <p>記録が積み重なっていく視覚的な達成感が、自然と次の日の行動を促します。スマートフォンで毎日数秒で完結するので、忙しい日でも続けられます。ダイエットを「頑張るもの」から「続けられるもの」に変えたくて作りました。</p>
           </div>
-          <a class="detail-link" href="/diet-habit-app/">開く →</a>
+          <a class="detail-link" href="https://juntori3015.github.io/diet-habit-app/" target="_blank" rel="noopener">開く →</a>
         </div>
       </div>
 
       <div class="detail-item">
         <span class="detail-num">04</span>
         <div>
-          <h2 class="detail-name">ジム</h2>
-          <div class="detail-text">
+          <h2 class="detail-title">ジム</h2>
+          <div class="detail-body">
             <p>ジムのマシンの使い方をまとめたガイドアプリです。「このマシン、どう使えばいいんだろう」という場面を減らしたくて作りました。各マシンの使い方・正しいフォーム・鍛えられる筋肉部位をわかりやすく確認できます。</p>
             <p>ジムに通い始めたばかりで何から始めればいいかわからない方にとくにおすすめです。難しい専門用語は使わず、はじめての人でも迷わず読めるように書いています。スマートフォンでジムの中からそのまま確認できます。</p>
           </div>
-          <a class="detail-link" href="/GYM/">開く →</a>
+          <a class="detail-link" href="https://juntori3015.github.io/GYM/" target="_blank" rel="noopener">開く →</a>
         </div>
       </div>
 
     </div>
+  </div>
 
-    <div class="section-head">
-      <span class="section-label">Column</span>
-      <div class="section-rule"></div>
-    </div>
-
+  <!-- COLUMN -->
+  <div class="column-section pad">
+    <span class="section-label">COLUMN</span>
     <div class="column-grid">
 
       <article class="column-item">
-        <div class="column-cat">節約</div>
+        <p class="column-cat">節約</p>
         <h3 class="column-title">節約習慣を続けるための3つのコツ</h3>
         <div class="column-body">
           <p>節約をしようと決意しても、気づけば元の生活に戻ってしまう——そんな経験をしたことはないでしょうか。節約が続かない理由の多くは「意志の弱さ」ではなく、「仕組みの問題」です。</p>
@@ -684,17 +546,17 @@
       </article>
 
       <article class="column-item">
-        <div class="column-cat">健康</div>
+        <p class="column-cat">健康</p>
         <h3 class="column-title">ジム初心者が最初の1ヶ月でやるべきこと</h3>
         <div class="column-body">
           <p>ジムに入会したものの、何から始めていいかわからずに途方に暮れた経験はありませんか。マシンがたくさんあって使い方もわからず、他の人の目も気になる——初心者がジムを辞めてしまう理由の多くはここにあります。</p>
           <p>最初の1ヶ月で最も大切なのは「習慣化」することです。成果を出すことより、まずジムに行くこと自体を習慣にする期間と考えてください。週2〜3回、30分でも構いません。「また来た」という感覚を積み重ねることが、長期的な継続につながります。</p>
-          <p>マシンの使い方は一度に全部覚えようとしないことがポイントです。最初は2〜3種類のマシンだけに絞り、正しいフォームを身につけることに集中しましょう。胸・背中・脚の大きな筋肉を鍛えるマシンから始めると、全身バランスよく鍛えられます。焦らず、少しずつ種目を増やしていくのがジム初心者の正しい進め方です。</p>
+          <p>マシンの使い方は一度に全部覚えようとしないことがポイントです。最初は2〜3種類のマシンだけに絞り、正しいフォームを身につけることに集中しましょう。胸・背中・脚の大きな筋肉を鍛えるマシンから始めると、全身バランスよく鍛えられます。</p>
         </div>
       </article>
 
       <article class="column-item">
-        <div class="column-cat">ダイエット</div>
+        <p class="column-cat">ダイエット</p>
         <h3 class="column-title">ダイエットが続かない本当の理由</h3>
         <div class="column-body">
           <p>ダイエットを始めるたびに挫折してしまう——その原因の多くは「ルールを厳しくしすぎること」にあります。カロリーを細かく計算し、食べてはいけないものを決め、毎日運動する。こうした厳格なルールは、少し崩れた瞬間に「もういいや」となりがちです。</p>
@@ -704,72 +566,44 @@
       </article>
 
     </div>
+  </div>
 
-    <div class="section-head">
-      <span class="section-label">About</span>
-      <div class="section-rule"></div>
-    </div>
-
-    <div class="about-body">
+  <!-- ABOUT + STATS -->
+  <div class="about-band">
+    <div class="about-inner">
       <div>
-        <p class="about-text">個人で作っているWebアプリをまとめています。節約・暇つぶし・健康をテーマに、シンプルで毎日使いたくなるものを目指しています。</p>
-        <p class="about-text" style="margin-top:1.4em">すべてのアプリはブラウザのみで動作し、アカウント登録・ログイン・個人情報の入力は不要です。スマートフォン・タブレット・PCどのデバイスからでも使えるよう、モバイルファーストで設計しています。データはすべてお使いのデバイス内に保存されるため、プライバシーの心配もありません。</p>
-        <p class="about-text" style="margin-top:1.4em">新しいアプリは随時追加予定です。アイデアやフィードバックがあれば、GitHubからご連絡ください。</p>
+        <p class="about-label">ABOUT</p>
+        <p class="about-lead">シンプルで、毎日使いたくなるもの。</p>
+        <div class="about-body">
+          <p>すべてのアプリはブラウザのみで動作し、アカウント登録・ログイン・個人情報の入力は不要です。データはお使いの端末内に保存されるため、プライバシーの心配もありません。</p>
+          <p>新しいアプリは随時追加予定です。アイデアやフィードバックがあれば、GitHubからご連絡ください。</p>
+        </div>
       </div>
-      <div class="about-stats">
-        <div>
-          <div class="stat-num">04</div>
-          <div class="stat-desc">Apps Published</div>
+      <div class="stats-col">
+        <div class="stat-row">
+          <span class="stat-label">Apps Published</span>
+          <span class="stat-val">04</span>
         </div>
-        <div>
-          <div class="stat-num">¥0</div>
-          <div class="stat-desc">Cost to Use</div>
+        <div class="stat-row">
+          <span class="stat-label">Cost to Use</span>
+          <span class="stat-val">¥0</span>
         </div>
-        <div>
-          <div class="stat-num">0</div>
-          <div class="stat-desc">Install Required</div>
+        <div class="stat-row">
+          <span class="stat-label">Install Required</span>
+          <span class="stat-val">0</span>
         </div>
       </div>
     </div>
+  </div>
 
-  </main>
-
-  <footer>
+  <!-- FOOTER -->
+  <footer class="footer">
     <span class="footer-brand">juntori3015</span>
     <div class="footer-links">
-      <a href="/privacy-policy/">プライバシーポリシー</a>
-      <a href="https://github.com/juntori3015" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://juntori3015.github.io/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>
+      <a href="https://github.com/juntori3015" target="_blank" rel="noopener">GitHub →</a>
     </div>
   </footer>
-
-  <script>
-    // Custom cursor (desktop only)
-    const cursor = document.getElementById('js-cursor');
-    if (window.matchMedia('(hover: hover)').matches) {
-      document.body.style.cursor = 'none';
-      document.addEventListener('mousemove', e => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-      });
-      document.querySelectorAll('a').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-      });
-    }
-
-    // Scroll reveal for app items
-    const items = document.querySelectorAll('.app-item');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const idx = [...items].indexOf(entry.target);
-          setTimeout(() => entry.target.classList.add('visible'), idx * 90);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    items.forEach(el => observer.observe(el));
-  </script>
 
 </body>
 </html>
