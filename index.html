@@ -3,322 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="節約の可視化・健康習慣・暇つぶしゲームをテーマにした無料Webアプリ集。レジストログ・宇宙探検家・ダイエット習慣アプリなど、日常をちょっと豊かにするツールを公開しています。">
+  <meta name="description" content="節約・暇つぶし・健康をテーマにした無料Webアプリを作っています。">
   <title>juntori3015 | 無料Webアプリ集</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background: #0d0d0d;
-      color: #e8e8e8;
+      color: #d0d0d0;
       font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
       min-height: 100vh;
     }
 
     header {
-      padding: 60px 20px 40px;
-      text-align: center;
-      border-bottom: 1px solid #222;
+      padding: 80px 24px 60px;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
     header h1 {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
       color: #fff;
+      margin-bottom: 12px;
     }
 
     header p {
-      margin-top: 12px;
       font-size: 0.95rem;
-      color: #888;
-      line-height: 1.7;
+      color: #666;
+      line-height: 1.8;
     }
 
     main {
-      max-width: 900px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 0 24px 100px;
     }
 
-    .section-title {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      color: #555;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+    .divider {
+      border: none;
+      border-top: 1px solid #1e1e1e;
+      margin: 48px 0;
     }
 
-    .apps {
+    .app-item {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-      margin-bottom: 80px;
+      grid-template-columns: 48px 1fr;
+      gap: 0 20px;
+      margin-bottom: 52px;
     }
 
-    .app-card {
-      background: #161616;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 28px 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s, background 0.2s;
-      display: block;
-    }
-
-    .app-card:hover {
-      border-color: #444;
-      background: #1c1c1c;
-    }
-
-    .app-icon {
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
-
-    .app-name {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .app-desc {
-      font-size: 0.85rem;
-      color: #777;
-      line-height: 1.6;
-    }
-
-    .about {
-      background: #161616;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 40px;
-      margin-bottom: 60px;
-    }
-
-    .about h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-
-    .about p {
-      font-size: 0.9rem;
-      color: #777;
-      line-height: 1.9;
-      margin-bottom: 12px;
-    }
-
-    .about p:last-child {
+    .app-item:last-child {
       margin-bottom: 0;
     }
 
-    .app-detail {
-      margin-bottom: 48px;
+    .app-item-icon {
+      font-size: 1.6rem;
+      padding-top: 2px;
     }
 
-    .app-detail h2 {
-      font-size: 1.2rem;
+    .app-item-body h2 {
+      font-size: 1.05rem;
       font-weight: 600;
       color: #fff;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #222;
+      margin-bottom: 10px;
     }
 
-    .app-detail p {
-      font-size: 0.9rem;
-      color: #777;
+    .app-item-body p {
+      font-size: 0.88rem;
+      color: #666;
       line-height: 1.9;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
-    .app-detail ul {
-      list-style: none;
-      margin: 12px 0;
-    }
-
-    .app-detail ul li {
-      font-size: 0.9rem;
-      color: #777;
-      line-height: 1.9;
-      padding-left: 1em;
-      position: relative;
-    }
-
-    .app-detail ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: #444;
-    }
-
-    .app-detail a {
+    .app-link {
       display: inline-block;
-      margin-top: 16px;
-      font-size: 0.85rem;
-      color: #888;
+      font-size: 0.8rem;
+      color: #555;
       text-decoration: none;
-      border: 1px solid #333;
-      border-radius: 6px;
-      padding: 6px 16px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    .app-detail a:hover {
-      border-color: #555;
-      color: #bbb;
+    .app-link:hover {
+      color: #999;
+      border-color: #666;
+    }
+
+    .profile {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid #1e1e1e;
+    }
+
+    .profile p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.9;
     }
 
     footer {
       border-top: 1px solid #1a1a1a;
-      padding: 30px 20px;
+      padding: 28px 24px;
       text-align: center;
     }
 
     footer a {
-      color: #555;
+      color: #444;
       text-decoration: none;
-      font-size: 0.8rem;
-      margin: 0 12px;
+      font-size: 0.78rem;
+      margin: 0 10px;
     }
 
-    footer a:hover {
-      color: #888;
-    }
+    footer a:hover { color: #777; }
   </style>
 </head>
 <body>
 
   <header>
     <h1>juntori3015</h1>
-    <p>日常をちょっとよくする、無料Webアプリ集</p>
+    <p>日常をちょっとよくする、無料Webアプリを作っています。</p>
   </header>
 
   <main>
 
-    <p class="section-title">Apps</p>
-
-    <div class="apps">
-      <a class="app-card" href="/resist-log/">
-        <div class="app-icon">🏆</div>
-        <div class="app-name">今日何我慢した？</div>
-        <div class="app-desc">節約行動をコインで可視化する習慣トラッカー。カフェ我慢・コンビニ回避など日々の我慢をスコアとして記録。</div>
-      </a>
-
-      <a class="app-card" href="/space-explorer/">
-        <div class="app-icon">🚀</div>
-        <div class="app-name">宇宙探検家</div>
-        <div class="app-desc">宇宙の広さをインタラクティブに体感できる探索アプリ。惑星・恒星・銀河など宇宙のスケールを視覚的に学べる。</div>
-      </a>
-
-      <a class="app-card" href="/diet-habit-app/">
-        <div class="app-icon">💪</div>
-        <div class="app-name">ダイエット習慣アプリ</div>
-        <div class="app-desc">食事・運動・睡眠など健康習慣を記録・管理するアプリ。継続を助けるシンプルなUI設計。</div>
-      </a>
-
-      <a class="app-card" href="/GYM/">
-        <div class="app-icon">🏋️</div>
-        <div class="app-name">ジム</div>
-        <div class="app-desc">ジムマシンの使い方・フォームを解説するガイドアプリ。初心者から中級者まで役立つトレーニング情報。</div>
-      </a>
+    <div class="app-item">
+      <div class="app-item-icon">🏆</div>
+      <div class="app-item-body">
+        <h2>今日何我慢した？</h2>
+        <p>節約を「見える化」するアプリです。カフェを我慢した、コンビニに寄らなかった、自炊したなど、日々の小さな我慢を記録してコインとして積み上げていきます。続けるほど貯まっていく感覚が、次の日の節約モチベーションになります。</p>
+        <a class="app-link" href="/resist-log/">使ってみる →</a>
+      </div>
     </div>
 
-    <p class="section-title">About Each App</p>
-
-    <div class="app-detail">
-      <h2>🏆 今日何我慢した？</h2>
-      <p>
-        「今日何我慢した？」は、節約行動をゲーム感覚で記録・可視化する習慣トラッカーです。
-        カフェに寄らなかった、コンビニでお菓子を買わなかった、ランチを自炊したなど、日々のちょっとした我慢をコインとしてスタックしていきます。
-      </p>
-      <p>
-        節約は継続が難しいと言われますが、このアプリでは我慢した行動を記録するたびにコインが加算され、達成感を得られる仕組みになっています。
-        貯まったコインは節約金額の目安として換算でき、モチベーションの維持に役立ちます。
-      </p>
-      <ul>
-        <li>カフェ我慢・おやつ我慢・コンビニ回避など複数の節約行動を記録</li>
-        <li>連続記録日数でやる気をキープ</li>
-        <li>コイン累計でどれだけ我慢したか一目でわかる</li>
-        <li>インストール不要・ブラウザだけで動作</li>
-      </ul>
-      <a href="/resist-log/">アプリを使ってみる →</a>
+    <div class="app-item">
+      <div class="app-item-icon">🚀</div>
+      <div class="app-item-body">
+        <h2>宇宙探検家</h2>
+        <p>暇つぶしに宇宙の広さをぼんやり眺めるアプリです。地球から銀河の果てまで、スケール感を段階的に体感できます。「宇宙ってどのくらい広いんだろう」と気になったとき、なんとなく開いてほしいです。</p>
+        <a class="app-link" href="/space-explorer/">使ってみる →</a>
+      </div>
     </div>
 
-    <div class="app-detail">
-      <h2>🚀 宇宙探検家</h2>
-      <p>
-        宇宙探検家は、宇宙の広さをインタラクティブに体感できる探索アプリです。
-        地球から月、太陽系の惑星、近隣の恒星、銀河系、そして観測可能な宇宙の果てまで、スケールを比較しながら宇宙の広さを視覚的に旅することができます。
-      </p>
-      <p>
-        宇宙のスケールは日常の感覚では想像しにくいものですが、このアプリではステップごとに距離感を体感できるよう設計されています。
-        子どもから大人まで、宇宙に興味がある方にぴったりの暇つぶしコンテンツです。
-      </p>
-      <ul>
-        <li>太陽系・銀河系・宇宙のスケールを段階的に体感</li>
-        <li>惑星・恒星・銀河の基本情報を掲載</li>
-        <li>スマートフォンでも快適に操作できるUI</li>
-      </ul>
-      <a href="/space-explorer/">アプリを使ってみる →</a>
+    <div class="app-item">
+      <div class="app-item-icon">💪</div>
+      <div class="app-item-body">
+        <h2>ダイエット習慣アプリ</h2>
+        <p>食事・運動・睡眠の習慣をタップだけで記録するアプリです。細かく記録しようとすると続かないので、とにかく「やった」「やらなかった」だけ残せる設計にしています。</p>
+        <a class="app-link" href="/diet-habit-app/">使ってみる →</a>
+      </div>
     </div>
 
-    <div class="app-detail">
-      <h2>💪 ダイエット習慣アプリ</h2>
-      <p>
-        ダイエット習慣アプリは、食事・運動・睡眠などの健康習慣を手軽に記録・管理するためのアプリです。
-        難しい入力は一切なく、シンプルなタップ操作だけで日々の習慣を記録できます。
-      </p>
-      <p>
-        ダイエットが続かない原因のひとつは、記録が面倒になることです。このアプリでは「続けやすさ」を最優先に設計しており、毎日負担なく使い続けられることを目指しています。
-        習慣の積み重ねが見えることで、自然とモチベーションが上がる仕組みです。
-      </p>
-      <ul>
-        <li>食事・運動・睡眠を3タップで記録</li>
-        <li>習慣の継続日数を可視化</li>
-        <li>シンプルなUIで毎日続けやすい</li>
-      </ul>
-      <a href="/diet-habit-app/">アプリを使ってみる →</a>
+    <div class="app-item">
+      <div class="app-item-icon">🏋️</div>
+      <div class="app-item-body">
+        <h2>ジム</h2>
+        <p>ジムのマシンの使い方をまとめたガイドアプリです。「このマシン何をどうすればいいんだろう」という場面を減らしたくて作りました。使い方・鍛えられる部位をシンプルに確認できます。</p>
+        <a class="app-link" href="/GYM/">使ってみる →</a>
+      </div>
     </div>
 
-    <div class="app-detail">
-      <h2>🏋️ ジム</h2>
-      <p>
-        ジムアプリは、ジムのマシンや器具の使い方・正しいフォームを解説するガイドアプリです。
-        ジム初心者が「このマシンはどう使うの？」と迷う場面を減らすことを目的に作られています。
-      </p>
-      <p>
-        各マシンの対象筋肉・基本的な使い方・よくある間違いをわかりやすくまとめています。
-        ジムに通い始めたばかりの方や、新しいマシンを試したい中級者にも参考になる内容です。
-      </p>
-      <ul>
-        <li>主要マシンの使い方を網羅</li>
-        <li>鍛えられる筋肉部位を明示</li>
-        <li>初心者向けのわかりやすい解説</li>
-      </ul>
-      <a href="/GYM/">アプリを使ってみる →</a>
-    </div>
-
-    <div class="about">
-      <h2>このサイトについて</h2>
-      <p>
-        juntori3015 は、節約の可視化・暇つぶしゲーム・健康習慣をテーマにした無料Webアプリを制作・公開しています。
-        ちょっとした時間に楽しめるゲームから、日々の習慣をサポートするツールまで幅広く開発しています。
-      </p>
-      <p>
-        すべてのアプリはブラウザだけで動作し、インストール不要で無料でご利用いただけます。
-        スマートフォン・タブレット・PCなど、どのデバイスからでもアクセス可能です。
-      </p>
-      <p>
-        フィードバックや改善のご要望があれば、GitHub よりお気軽にどうぞ。
-      </p>
+    <div class="profile">
+      <p>個人で作っているWebアプリをまとめています。節約・暇つぶし・健康あたりをテーマに、シンプルで毎日使いたくなるものを目指して作っています。新しいアプリは随時追加予定です。</p>
     </div>
 
   </main>
