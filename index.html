@@ -9,163 +9,263 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #0d0d0d;
-      color: #d0d0d0;
+      background: #111318;
+      color: #c8cad0;
       font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
       min-height: 100vh;
     }
 
     header {
-      padding: 80px 24px 60px;
-      max-width: 760px;
+      padding: 80px 24px 64px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
+    .header-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: #6c8ef5;
+      background: rgba(108, 142, 245, 0.1);
+      border: 1px solid rgba(108, 142, 245, 0.25);
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+
     header h1 {
-      font-size: 1.6rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 12px;
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
 
     header p {
-      font-size: 0.95rem;
-      color: #666;
+      font-size: 1rem;
+      color: #8a8d97;
       line-height: 1.8;
+      max-width: 480px;
     }
 
     main {
-      max-width: 760px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 24px 100px;
     }
 
-    .divider {
-      border: none;
-      border-top: 1px solid #1e1e1e;
-      margin: 48px 0;
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: #444750;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
 
-    .app-item {
+    .apps {
       display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 0 20px;
-      margin-bottom: 52px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin-bottom: 72px;
     }
 
-    .app-item:last-child {
-      margin-bottom: 0;
+    .app-card {
+      background: #181b22;
+      border: 1px solid #252830;
+      border-radius: 16px;
+      padding: 28px 26px 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s;
     }
 
-    .app-item-icon {
-      font-size: 1.6rem;
-      padding-top: 2px;
+    .app-card:hover {
+      border-color: #3a3f52;
+      transform: translateY(-2px);
     }
 
-    .app-item-body h2 {
-      font-size: 1.05rem;
+    .app-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+
+    .app-name {
+      font-size: 1rem;
       font-weight: 600;
-      color: #fff;
-      margin-bottom: 10px;
+      color: #e8eaf0;
+      margin-bottom: 8px;
     }
 
-    .app-item-body p {
-      font-size: 0.88rem;
-      color: #666;
-      line-height: 1.9;
+    .app-desc {
+      font-size: 0.84rem;
+      color: #6b6f7d;
+      line-height: 1.75;
+    }
+
+    .details {
+      display: grid;
+      gap: 2px;
+      margin-bottom: 72px;
+    }
+
+    .detail-item {
+      background: #181b22;
+      border: 1px solid #252830;
+      border-radius: 16px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .detail-item h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e8eaf0;
+      margin-bottom: 12px;
+    }
+
+    .detail-item p {
+      font-size: 0.87rem;
+      color: #7a7e8e;
+      line-height: 1.85;
+    }
+
+    .detail-link {
+      font-size: 0.78rem;
+      color: #6c8ef5;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 6px 14px;
+      border: 1px solid rgba(108, 142, 245, 0.3);
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .detail-link:hover {
+      background: rgba(108, 142, 245, 0.1);
+    }
+
+    .about-box {
+      background: #181b22;
+      border: 1px solid #252830;
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin-bottom: 72px;
+    }
+
+    .about-box h2 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e8eaf0;
       margin-bottom: 14px;
     }
 
-    .app-link {
-      display: inline-block;
-      font-size: 0.8rem;
-      color: #555;
-      text-decoration: none;
-      border-bottom: 1px solid #333;
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .app-link:hover {
-      color: #999;
-      border-color: #666;
-    }
-
-    .profile {
-      margin-top: 64px;
-      padding-top: 48px;
-      border-top: 1px solid #1e1e1e;
-    }
-
-    .profile p {
-      font-size: 0.88rem;
-      color: #555;
+    .about-box p {
+      font-size: 0.87rem;
+      color: #7a7e8e;
       line-height: 1.9;
+      margin-bottom: 10px;
     }
+
+    .about-box p:last-child { margin-bottom: 0; }
 
     footer {
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid #1c1f27;
       padding: 28px 24px;
       text-align: center;
     }
 
     footer a {
-      color: #444;
+      color: #444750;
       text-decoration: none;
       font-size: 0.78rem;
       margin: 0 10px;
     }
 
-    footer a:hover { color: #777; }
+    footer a:hover { color: #888; }
   </style>
 </head>
 <body>
 
   <header>
+    <div class="header-badge">FREE WEB APPS</div>
     <h1>juntori3015</h1>
-    <p>日常をちょっとよくする、無料Webアプリを作っています。</p>
+    <p>日常をちょっとよくする、無料Webアプリを作っています。節約・暇つぶし・健康がテーマです。</p>
   </header>
 
   <main>
 
-    <div class="app-item">
-      <div class="app-item-icon">🏆</div>
-      <div class="app-item-body">
-        <h2>今日何我慢した？</h2>
-        <p>節約を「見える化」するアプリです。カフェを我慢した、コンビニに寄らなかった、自炊したなど、日々の小さな我慢を記録してコインとして積み上げていきます。続けるほど貯まっていく感覚が、次の日の節約モチベーションになります。</p>
-        <a class="app-link" href="/resist-log/">使ってみる →</a>
+    <p class="section-label">Apps</p>
+
+    <div class="apps">
+      <a class="app-card" href="/resist-log/">
+        <div class="app-icon">🏆</div>
+        <div class="app-name">今日何我慢した？</div>
+        <div class="app-desc">節約行動をコインで見える化する習慣トラッカー。カフェ我慢・コンビニ回避など日々の我慢を記録。</div>
+      </a>
+
+      <a class="app-card" href="/space-explorer/">
+        <div class="app-icon">🚀</div>
+        <div class="app-name">宇宙探検家</div>
+        <div class="app-desc">宇宙の広さをインタラクティブに体感できる探索アプリ。暇なときにぼんやり眺めてほしい。</div>
+      </a>
+
+      <a class="app-card" href="/diet-habit-app/">
+        <div class="app-icon">💪</div>
+        <div class="app-name">ダイエット習慣アプリ</div>
+        <div class="app-desc">食事・運動・睡眠をタップだけで記録。細かい入力なしで続けられるシンプル設計。</div>
+      </a>
+
+      <a class="app-card" href="/GYM/">
+        <div class="app-icon">🏋️</div>
+        <div class="app-name">ジム</div>
+        <div class="app-desc">ジムのマシンの使い方・鍛えられる部位をまとめたガイドアプリ。初心者向け。</div>
+      </a>
+    </div>
+
+    <p class="section-label">詳細</p>
+
+    <div class="details">
+      <div class="detail-item">
+        <div>
+          <h2>🏆 今日何我慢した？</h2>
+          <p>節約を「見える化」するアプリです。カフェを我慢した、コンビニに寄らなかった、自炊したなど、日々の小さな我慢をコインとして積み上げていきます。続けるほど貯まっていく感覚が、次の日の節約モチベーションにつながります。連続記録日数も確認できるので、習慣づけにも使えます。</p>
+        </div>
+        <a class="detail-link" href="/resist-log/">開く →</a>
+      </div>
+
+      <div class="detail-item">
+        <div>
+          <h2>🚀 宇宙探検家</h2>
+          <p>暇つぶしに宇宙の広さをぼんやり眺めるアプリです。地球から銀河の果てまで、スケール感を段階的に体感できます。惑星・恒星・銀河など宇宙に関する情報もあわせて確認できるので、ちょっと宇宙に詳しくなれるかもしれません。</p>
+        </div>
+        <a class="detail-link" href="/space-explorer/">開く →</a>
+      </div>
+
+      <div class="detail-item">
+        <div>
+          <h2>💪 ダイエット習慣アプリ</h2>
+          <p>食事・運動・睡眠の習慣をタップだけで記録するアプリです。細かく記録しようとすると続かないので、「やった」「やらなかった」だけ残せる設計にしています。記録が積み重なることで、自然と習慣が身につく仕組みを目指しました。</p>
+        </div>
+        <a class="detail-link" href="/diet-habit-app/">開く →</a>
+      </div>
+
+      <div class="detail-item">
+        <div>
+          <h2>🏋️ ジム</h2>
+          <p>ジムのマシンの使い方をまとめたガイドアプリです。「このマシン何をどうすればいいんだろう」という場面を減らしたくて作りました。使い方・鍛えられる筋肉部位をわかりやすく確認できます。ジムに通い始めたばかりの方にとくにおすすめです。</p>
+        </div>
+        <a class="detail-link" href="/GYM/">開く →</a>
       </div>
     </div>
 
-    <div class="app-item">
-      <div class="app-item-icon">🚀</div>
-      <div class="app-item-body">
-        <h2>宇宙探検家</h2>
-        <p>暇つぶしに宇宙の広さをぼんやり眺めるアプリです。地球から銀河の果てまで、スケール感を段階的に体感できます。「宇宙ってどのくらい広いんだろう」と気になったとき、なんとなく開いてほしいです。</p>
-        <a class="app-link" href="/space-explorer/">使ってみる →</a>
-      </div>
-    </div>
-
-    <div class="app-item">
-      <div class="app-item-icon">💪</div>
-      <div class="app-item-body">
-        <h2>ダイエット習慣アプリ</h2>
-        <p>食事・運動・睡眠の習慣をタップだけで記録するアプリです。細かく記録しようとすると続かないので、とにかく「やった」「やらなかった」だけ残せる設計にしています。</p>
-        <a class="app-link" href="/diet-habit-app/">使ってみる →</a>
-      </div>
-    </div>
-
-    <div class="app-item">
-      <div class="app-item-icon">🏋️</div>
-      <div class="app-item-body">
-        <h2>ジム</h2>
-        <p>ジムのマシンの使い方をまとめたガイドアプリです。「このマシン何をどうすればいいんだろう」という場面を減らしたくて作りました。使い方・鍛えられる部位をシンプルに確認できます。</p>
-        <a class="app-link" href="/GYM/">使ってみる →</a>
-      </div>
-    </div>
-
-    <div class="profile">
-      <p>個人で作っているWebアプリをまとめています。節約・暇つぶし・健康あたりをテーマに、シンプルで毎日使いたくなるものを目指して作っています。新しいアプリは随時追加予定です。</p>
+    <div class="about-box">
+      <h2>このサイトについて</h2>
+      <p>個人で作っているWebアプリをまとめています。節約・暇つぶし・健康あたりをテーマに、シンプルで毎日使いたくなるものを目指して作っています。</p>
+      <p>すべてのアプリはブラウザだけで動作し、インストール不要で無料でご利用いただけます。スマートフォン・タブレット・PCどのデバイスからでも使えます。新しいアプリは随時追加予定です。</p>
     </div>
 
   </main>
