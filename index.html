@@ -376,6 +376,44 @@
 
     .detail-link:hover { gap: 16px; }
 
+    /* ---- COLUMN ---- */
+    .column-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 96px;
+    }
+
+    .column-item {
+      border-top: 2px solid var(--border);
+      padding-top: 28px;
+    }
+
+    .column-cat {
+      font-family: var(--en);
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .column-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .column-body {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 2.05;
+    }
+
+    .column-body p + p { margin-top: 1em; }
+
     /* ---- FOOTER ---- */
     footer {
       border-top: 1px solid var(--border);
@@ -421,6 +459,11 @@
       .about-body {
         grid-template-columns: 1fr;
         gap: 44px;
+      }
+
+      .column-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
 
       .detail-item {
@@ -620,6 +663,45 @@
           <a class="detail-link" href="/GYM/">開く →</a>
         </div>
       </div>
+
+    </div>
+
+    <div class="section-head">
+      <span class="section-label">Column</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="column-grid">
+
+      <article class="column-item">
+        <div class="column-cat">節約</div>
+        <h3 class="column-title">節約習慣を続けるための3つのコツ</h3>
+        <div class="column-body">
+          <p>節約をしようと決意しても、気づけば元の生活に戻ってしまう——そんな経験をしたことはないでしょうか。節約が続かない理由の多くは「意志の弱さ」ではなく、「仕組みの問題」です。</p>
+          <p>まず大切なのは、目標を小さく設定することです。「今月3万円貯める」という目標よりも、「今日コンビニに寄らなかった」という小さな成功体験を積み重ねる方が、長続きします。人間の脳は大きな目標より、毎日の小さな達成感に反応しやすい仕組みになっています。</p>
+          <p>次に、節約を「我慢」ではなく「記録」に変えることです。何を我慢したかを書き留めるだけで、その行動が習慣として定着していきます。連続記録日数や積み上げた実績を視覚的に確認できると、「今日もやろう」という気持ちが自然と湧いてきます。継続のモチベーションを仕組みとして作ることが、節約を長続きさせる最大のコツです。</p>
+        </div>
+      </article>
+
+      <article class="column-item">
+        <div class="column-cat">健康</div>
+        <h3 class="column-title">ジム初心者が最初の1ヶ月でやるべきこと</h3>
+        <div class="column-body">
+          <p>ジムに入会したものの、何から始めていいかわからずに途方に暮れた経験はありませんか。マシンがたくさんあって使い方もわからず、他の人の目も気になる——初心者がジムを辞めてしまう理由の多くはここにあります。</p>
+          <p>最初の1ヶ月で最も大切なのは「習慣化」することです。成果を出すことより、まずジムに行くこと自体を習慣にする期間と考えてください。週2〜3回、30分でも構いません。「また来た」という感覚を積み重ねることが、長期的な継続につながります。</p>
+          <p>マシンの使い方は一度に全部覚えようとしないことがポイントです。最初は2〜3種類のマシンだけに絞り、正しいフォームを身につけることに集中しましょう。胸・背中・脚の大きな筋肉を鍛えるマシンから始めると、全身バランスよく鍛えられます。焦らず、少しずつ種目を増やしていくのがジム初心者の正しい進め方です。</p>
+        </div>
+      </article>
+
+      <article class="column-item">
+        <div class="column-cat">ダイエット</div>
+        <h3 class="column-title">ダイエットが続かない本当の理由</h3>
+        <div class="column-body">
+          <p>ダイエットを始めるたびに挫折してしまう——その原因の多くは「ルールを厳しくしすぎること」にあります。カロリーを細かく計算し、食べてはいけないものを決め、毎日運動する。こうした厳格なルールは、少し崩れた瞬間に「もういいや」となりがちです。</p>
+          <p>続けやすいダイエットの共通点は、記録のシンプルさです。「食事した・しなかった」「運動した・しなかった」という2択だけで記録するだけでも、自分の生活パターンが見えてきます。細かく管理しようとすればするほど続かなくなるというのが、ダイエットの逆説です。</p>
+          <p>また、睡眠をダイエットの一部として捉えることも重要です。睡眠が不足すると食欲を増進させるホルモンが増え、脂肪を燃焼しにくい体になります。食事・運動・睡眠の3つをシンプルに記録し、毎日少しずつ続けることが、結果として一番の近道になります。</p>
+        </div>
+      </article>
 
     </div>
 
